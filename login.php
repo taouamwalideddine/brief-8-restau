@@ -100,8 +100,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </nav>
-<div class="container">
-    <div class="col-md-6 offset-md-3 login-container">
+<div class="container d-flex align-items-center justify-content-between" style="height: 100vh;">
+    <!-- Login Section -->
+    <div class="col-md-6 login-container">
         <h2 class="text-center">Login</h2>
         <?php if ($error): ?>
             <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -121,7 +122,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Don't have an account? <a href="register.php">Register here</a>
         </p>
     </div>
+    <div class="" style="margin-top: 100px;">
+        <img src="img/gallery/01.jpg" alt="restaurant" class="">
+    </div>
 </div>
+
 <div id="footer">
     <div class="container text-center">
         <div class="col-md-6">
