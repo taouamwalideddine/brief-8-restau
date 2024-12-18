@@ -8,7 +8,6 @@ $pdo = getDatabaseConnection();
 $error = '';
 $success = '';
 
-// Handle Reservation Status Update
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_reservation'])) {
     // CSRF Token Validation
     if (!validateCSRFToken($_POST['csrf_token'])) {
