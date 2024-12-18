@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 FROM users 
                 JOIN roles ON users.Role_ID = roles.ID
                 WHERE users.Email = ?";
-        
+
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -54,6 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         body {
             background-color: #f8f9fa;
+            min-height: 100vh; /* Added */
+            display: flex; /* Added */
+            flex-direction: column; /* Added */
         }
         .login-container {
             margin-top: 100px;
@@ -61,10 +64,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: white;
             border-radius: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            flex: 1; /* Added */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically*/
+        }
+        #footer {
+            margin-top: auto; /* Push footer to bottom */
         }
     </style>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
 </head>
 <body>
+<nav id="menu" class="navbar navbar-default navbar-fixed-top ">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html" class="page-scroll">Main</a></li>
+                <li><a href="menu.php" class="page-scroll">Menu</a></li>
+                <li><a href="#team" class="page-scroll">Chef</a></li>
+                <li><a href="login.php" class="page-scroll">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container">
     <div class="col-md-6 offset-md-3 login-container">
         <h2 class="text-center">Login</h2>
@@ -85,6 +120,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p class="text-center mt-3">
             Don't have an account? <a href="register.php">Register here</a>
         </p>
+    </div>
+</div>
+<div id="footer">
+    <div class="container text-center">
+        <div class="col-md-6">
+            <p>&copy; 2017 Gusto. All rights reserved. Design by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+        </div>
+        <div class="col-md-6">
+            <div class="social">
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 </body>
