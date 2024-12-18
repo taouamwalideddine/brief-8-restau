@@ -1,13 +1,14 @@
 <?php
-$host = 'localhost'; 
-$dbname = 'culinary_experience';
-$username = 'root';  
-$password = '';      
+$host = "localhost";    // Your database host (usually "localhost" for XAMPP)
+$user = "root";         // Your database username (default for XAMPP is "root")
+$password = "";         // Your database password (default is empty for XAMPP)
+$database = "culinary_experience";  // Your database name
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Could not connect to the database $dbname :" . $e->getMessage());
+// Create connection
+$conn = new mysqli($host, $user, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
