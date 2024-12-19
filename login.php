@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['role'] = $user['Role'];
 
                 if ($user['Role'] == 'Chef') {
-                    header("Location: chef_dashboard.php");
+                    header("Location: editMenu.php");
                 } else {
-                    header("Location: user_dashboard.php");
+                    header("Location: menu.php");
                 }
                 exit();
             } else {
@@ -54,9 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         body {
             background-color: #f8f9fa;
-            min-height: 100vh; /* Added */
-            display: flex; /* Added */
-            flex-direction: column; /* Added */
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
         }
         .login-container {
             margin-top: 100px;
@@ -64,13 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: white;
             border-radius: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            flex: 1; /* Added */
+            flex: 1; 
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content vertically*/
+            justify-content: center;
         }
         #footer {
-            margin-top: auto; /* Push footer to bottom */
+            margin-top: auto;
         }
     </style>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -101,7 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </nav>
 <div class="container d-flex align-items-center justify-content-between" style="height: 100vh;">
-    <!-- Login Section -->
     <div class="col-md-6 login-container">
         <h2 class="text-center">Login</h2>
         <?php if ($error): ?>
