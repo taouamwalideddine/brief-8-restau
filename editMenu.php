@@ -12,7 +12,7 @@ $chef_id = $_SESSION['user_id'];
 if (isset($_GET['delete_id'])) {
     $delete_id = intval($_GET['delete_id']);
     $conn->query("DELETE FROM menus WHERE ID = $delete_id AND Chef_ID = $chef_id");
-    header("Location: chef_menus.php");
+    header("Location: editMenu.php");
     exit();
 }
 
@@ -94,7 +94,7 @@ $result = $conn->query("SELECT * FROM menus WHERE Chef_ID = $chef_id");
 </nav>
 <div class="container mt-5">
     <h2 class="text-center">Your Menus</h2>
-    <a href="#addMenuModal" data-toggle="modal" class="btn btn-success mb-3">Add New Menu</a>
+    <a href="add_menu.php" class="btn btn-success mb-3">Add New Menu</a>
 
     <table class="table table-bordered">
         <thead>
@@ -115,34 +115,6 @@ $result = $conn->query("SELECT * FROM menus WHERE Chef_ID = $chef_id");
                     <a href="chef_dishes.php?menu_id=<?php echo $row['ID']; ?>" class="btn btn-info btn-sm">View Dishes</a>
                 </td>
             </tr>
-
-            <div class="modal fade" id="editMenuModal<?php echo $row['ID']; ?>">
-                <div class="modal-dialog">
-                    <form method="POST" action="chef_menus.php">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Edit Menu</h5>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <input type="hidden" name="menu_id" value="<?php echo $row['ID']; ?>">
-                                <div class="form-group">
-                                    <label>Menu Name</label>
-                                    <input type="text" name="menu_name" class="form-control" value="<?php echo htmlspecialchars($row['Name']); ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea name="menu_description" class="form-control" required><?php echo htmlspecialchars($row['Description']); ?></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
             <?php endwhile; ?>
         </tbody>
     </table>
