@@ -16,13 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($menu_name) && !empty($menu_description)) {
         $stmt = $conn->prepare("INSERT INTO menus (Chef_ID, Name, Description) VALUES (?, ?, ?)");
         $stmt->bind_param("iss", $chef_id, $menu_name, $menu_description);
-        
+        $stmt->execute();
 
         if ($stmt->affected_rows > 0) {
             header("Location: editMenu.php?success=1");
             exit();
         } else {
-            $error_message = "Error adding the menu. Please try again.";
+            $error_message = "cant afd menu. Please try again.";
         }
     } else {
         $error_message = "Menu name and description cannot be empty.";

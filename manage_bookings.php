@@ -1,7 +1,6 @@
 <?php
 require_once 'db.php';
 
-// Restrict access to Chefs only
 requireChef();
 
 $pdo = getDatabaseConnection();
@@ -32,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_reservation'])
     }
 }
 
-// Fetch Pending Reservations for Current Chef
 $stmt = $pdo->prepare("
     SELECT r.*, u.Name as UserName, m.Name as MenuName 
     FROM Reservations r
