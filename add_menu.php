@@ -1,5 +1,10 @@
 <?php
-session_start();
+include 'navbar.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 include 'db.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'Chef') {
@@ -59,6 +64,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
         }
     </style>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
 </head>
 <body>
     <div class="card">
@@ -80,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success">Add Menu</button>
-                    <a href="chef_menus.php" class="btn btn-secondary">Cancel</a>
+                    <a href="editMenu.php" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
         </div>

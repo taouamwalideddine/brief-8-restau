@@ -1,4 +1,5 @@
 <?php
+include 'navbar.php';
 include 'db.php';
 
 $menu_id = isset($_GET['menu_id']) ? intval($_GET['menu_id']) : 0;
@@ -46,9 +47,21 @@ $result = $conn->query($sql);
             border-radius: 20px;
         }
     </style>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
 </head>
 <body>
-<div class="container mt-5">
+<div class="container mt-5"style="margin-top: 100px;">
     <h2 class="text-center mb-4">Dishes in Menu</h2>
     <div class="row">
         <?php

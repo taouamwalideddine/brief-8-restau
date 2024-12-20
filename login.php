@@ -1,7 +1,6 @@
 <?php
-session_start();
-include 'db.php';
-
+include 'db.php'; 
+include 'navbar.php';  
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -85,22 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
 </head>
 <body>
-<nav id="menu" class="navbar navbar-default navbar-fixed-top ">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="index.html" class="page-scroll">Main</a></li>
-                <li><a href="menu.php" class="page-scroll">Menu</a></li>
-                <li><a href="#team" class="page-scroll">Chef</a></li>
-                <li><a href="login.php" class="page-scroll">Login</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <div class="container d-flex align-items-center justify-content-between" style="height: 100vh;">
     <div class="col-md-6 login-container">
         <h2 class="text-center">Login</h2>

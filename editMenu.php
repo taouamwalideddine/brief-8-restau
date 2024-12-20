@@ -1,7 +1,6 @@
 <?php
-session_start();
-include 'db.php';
-
+include 'db.php'; 
+include 'navbar.php';  
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'Chef') {
     header("Location: login.php");
     exit();
@@ -76,23 +75,7 @@ $result = $conn->query("SELECT * FROM menus WHERE Chef_ID = $chef_id");
     <link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
 </head>
 <body>
-<nav id="menu" class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="index.html" class="page-scroll">Main</a></li>
-                <li><a href="menu.php" class="page-scroll">Menu</a></li>
-                <li><a href="#team" class="page-scroll">Chef</a></li>
-                <li><a href="login.php" class="page-scroll">Login</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container mt-5">
+<div class="container mt-5" style="margin-top: 100px;">
     <h2 class="text-center">Your Menus</h2>
     <a href="add_menu.php" class="btn btn-success mb-3">Add New Menu</a>
 
@@ -110,9 +93,9 @@ $result = $conn->query("SELECT * FROM menus WHERE Chef_ID = $chef_id");
                 <td><?php echo htmlspecialchars($row['Name']); ?></td>
                 <td><?php echo htmlspecialchars($row['Description']); ?></td>
                 <td>
-                    <a href="?delete_id=<?php echo $row['ID']; ?>" class="btn btn-danger btn-sm">Delete</a>
-                    <a href="#editMenuModal<?php echo $row['ID']; ?>" data-toggle="modal" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="chef_dishes.php?menu_id=<?php echo $row['ID']; ?>" class="btn btn-info btn-sm">View Dishes</a>
+                <a href="?delete_id=<?php echo $row['ID']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                <a href="add_dishes.php?menu_id=<?php echo $row['ID']; ?>" class="btn btn-primary btn-sm">Add Dishes</a>
+                <a href="dishes.php?menu_id=<?php echo $row['ID']; ?>" class="btn btn-info btn-sm">View Dishes</a>
                 </td>
             </tr>
             <?php endwhile; ?>

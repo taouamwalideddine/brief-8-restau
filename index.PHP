@@ -1,5 +1,8 @@
-<!DOCTYPE html>
+<?php
+include 'navbar.php';
+?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -20,26 +23,13 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
-
-
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-<nav id="menu" class="navbar navbar-default navbar-fixed-top ">
-  <div class="container"> 
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-    </div>
-    
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html" class="page-scroll">Main</a></li>
-        <li><a href="menu.php" class="page-scroll">Menu</a></li>
-        <li><a href="#team" class="page-scroll">Chef</a></li>
-        <li><a href="login.php" class="page-scroll">Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+
+
+
+<!-- Header -->
 <header id="header">
   <div class="intro">
     <div class="overlay">

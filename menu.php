@@ -1,6 +1,6 @@
 <?php
-include 'db.php'; // Include the database connection
-
+include 'db.php'; 
+include 'navbar.php';   
 $sql = "
     SELECT menus.ID AS Menu_ID, menus.Name AS Menu_Name, menus.Description AS Menu_Description, 
            users.Name AS Chef_Name 
@@ -17,9 +17,18 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu List</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rochester" rel="stylesheet">
     <style>
         .menu-card {
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
@@ -64,7 +73,7 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
-<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+<!-- <nav id="menu" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -83,7 +92,7 @@ $result = $conn->query($sql);
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
 
 <div class="container mt-5" style="margin-top: 100px;">
     <h2 class="text-center mb-5">Our Menus</h2>
@@ -116,7 +125,6 @@ $result = $conn->query($sql);
 <script>
     function reserveMenu(menuId) {
         alert('Reserving menu ID: ' + menuId);
-        // Add AJAX or redirect to handle reservations.
     }
 
     function viewDishes(menuId) {
